@@ -33,12 +33,14 @@ class Word{
     public function contarPalabras($palabra){
 
         $count = substr_count(self::getPalabra(),$palabra);
+
         return $count;
 
     }
 
     /**
      * @param $palabra
+     *
      */
     public function posicionesPalabras($letras){
 
@@ -51,5 +53,25 @@ class Word{
 
 
     }
+
+    public function sustituirPalabras($letraReemplazar, $nuevaLetra){
+
+
+        $resultado = str_replace ( $letraReemplazar , $nuevaLetra , self::getPalabra());
+
+        return $resultado;
+
+    }
+
+    public function sustPalabraPosicion($x,$y){
+
+        $resultado =  str_replace($this->palabra[$x], $this->palabra[$y],self::getPalabra());
+
+        return $resultado;
+
+    }
+
+
+
 
 }
