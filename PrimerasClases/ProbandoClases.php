@@ -9,17 +9,21 @@
 <?php
 require_once "Word.php";
 
-    $palabra = new Word("Hola guapo");
+    $palabra = new Word("Hola");
 
-    /*
-    echo $palabra->contarPalabras('Hola');
+    echo "<div>";
+
+    echo $palabra->contarPalabras('e');
+
+    echo "<div>";
 
 
-     echo $palabra ->posicionesPalabras('a');
-    */
+    echo "posiciones palabras";
+    echo "<div>";
+    echo $palabra ->posicionesPalabras('a');
 
 
-    /*
+
     echo "<div>";
     echo "La frase es " .$palabra->getPalabra();
 
@@ -28,9 +32,11 @@ require_once "Word.php";
 
     echo "<div>";
     echo "El resultado es ". $palabra->sustituirPalabras("Hola","U");
-    */
 
-    echo $palabra->sustPalabraPosicion(1,8);
+echo "<div>";
+    echo $palabra->sustPalabraPosicion(1,3);
+
+
 ?>
 
 

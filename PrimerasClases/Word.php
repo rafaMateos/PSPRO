@@ -10,6 +10,7 @@ class Word{
     public $palabra;
 
         function __construct($palabra){
+
             $this->palabra = $palabra;
 
         }
@@ -42,13 +43,21 @@ class Word{
      * @param $palabra
      *
      */
+
+
     public function posicionesPalabras($letras){
+
 
          $arrPalabras = str_split(self::getPalabra());
 
-           foreach ($arrPalabras as $valor){
+           for($i = 0; $i < count($arrPalabras); $i++){
 
-               echo $valor;
+               if($letras == $arrPalabras[$i]){
+
+                   echo $i;
+
+               }
+
            }
 
 
@@ -62,6 +71,7 @@ class Word{
         return $resultado;
 
     }
+
 
     public function sustPalabraPosicion($x,$y){
 
