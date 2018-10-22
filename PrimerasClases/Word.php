@@ -2,12 +2,14 @@
 
 /* Estudio clase
  *  Nombre: Palabra
- *
+ *  Atributos: Palabra String Consultable , modificiable
+ *  Get/Set : getPalabra, setPalabra
+ *  Metodos añadidos: contarPalabras,posicionesPalabras,sustituirPalabras,sustPalabraPosicion
  * */
 
 class Word{
 
-    public $palabra;
+    private $palabra;
 
         function __construct($palabra){
 
@@ -19,8 +21,11 @@ class Word{
      * @return palabra
      */
     public function getPalabra(){
+
         return $this->palabra;
     }
+
+
 
     /**
      * @param mixed $palabra
@@ -31,6 +36,10 @@ class Word{
     }
 
 
+    /**
+     * @param $palabra
+     * @return int
+     */
     public function contarPalabras($palabra){
 
         $count = substr_count(self::getPalabra(),$palabra);
@@ -39,12 +48,11 @@ class Word{
 
     }
 
+
     /**
      * @param $palabra
      *
      */
-
-
     public function posicionesPalabras($letras){
 
 
@@ -63,6 +71,11 @@ class Word{
 
     }
 
+    /**
+     * @param $letraReemplazar
+     * @param $nuevaLetra
+     * @return mixed
+     */
     public function sustituirPalabras($letraReemplazar, $nuevaLetra){
 
 
@@ -72,7 +85,11 @@ class Word{
 
     }
 
-
+    /**
+     * @param $x
+     * @param $y
+     * @return mixed
+     */
     public function sustPalabraPosicion($x,$y){
 
         $resultado =  str_replace($this->palabra[$x], $this->palabra[$y],self::getPalabra());

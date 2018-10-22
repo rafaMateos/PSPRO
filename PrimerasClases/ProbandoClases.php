@@ -22,27 +22,20 @@ require_once "Word.php";
     echo "<div>";
     echo $palabra ->posicionesPalabras('a');
 
-
-
     echo "<div>";
     echo "La frase es " .$palabra->getPalabra();
 
     echo "<div>";
-    echo 'Vamos a cambiar a por U';
+    echo 'Vamos a cambiar a por pepe';
 
     echo "<div>";
-    echo "El resultado es ". $palabra->sustituirPalabras("Hola","U");
+    echo "El resultado es ". $palabra->sustituirPalabras("Hola","pepe");
 
-echo "<div>";
+    echo "<div>";
     echo $palabra->sustPalabraPosicion(1,3);
 
 
 ?>
-
-
-
-
-
 
 </body>
 </html>
