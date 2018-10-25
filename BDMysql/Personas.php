@@ -10,16 +10,16 @@ class Personas
 {
 
     private $Nombre;
-    private $Edad;
+    private $Id;
     private $Direccion;
     private $Telefono;
 
-    public function __construct($newNombre,$newEdad,$newDireccion,$newTelefono)
+    public function __construct($newNombre,$newId,$newDireccion,$newTelefono)
 
     {
 
          $this->Nombre = $newNombre;
-         $this->Edad = $newEdad;
+         $this->Id = $newId;
          $this->Direccion = $newDireccion;
          $this->Telefono = $newTelefono;
 
@@ -31,9 +31,9 @@ class Personas
 
    }
 
-   public function getEdad(){
+   public function getId(){
 
-       return $this->Edad;
+       return $this->Id;
 
    }
 

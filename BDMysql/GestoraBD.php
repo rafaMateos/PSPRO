@@ -24,6 +24,9 @@ class GestoraBD
             trigger_error("Error al conectar: " . $conexion->connect_error,
 
                 E_USER_ERROR);
+        }else{
+
+            echo "Conexcion flama nene";
         }
     }
 
@@ -49,7 +52,7 @@ class GestoraBD
 
             while($row = $resultado->fetch_assoc()) {
 
-                echo "id: " . $row["Id"]. " - Name: " . $row["Nombre"]. " " ."<br>";
+                echo "id: " . $row["Id"]. " - Name: " . $row["Nombre"]. " " .$row["Direccion"]. " " . $row["Telefono"]. "<br>";
 
             }
         } else {
@@ -58,4 +61,6 @@ class GestoraBD
         }
 
     }
+
+
 }
