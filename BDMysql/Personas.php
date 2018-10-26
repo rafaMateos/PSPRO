@@ -15,7 +15,6 @@ class Personas
     private $Telefono;
 
     public function __construct($newNombre,$newId,$newDireccion,$newTelefono)
-
     {
 
          $this->Nombre = $newNombre;

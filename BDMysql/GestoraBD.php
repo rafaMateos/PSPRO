@@ -9,10 +9,17 @@
 class GestoraBD
 {
 
+    /*
+     * Nombre:Conectar
+     *
+     * Entradas : No tiene
+     * */
+
 
     public function conectar(){
 
         $conexion = new mysqli('localhost','root','root','Personas');
+
         return $conexion;
 
     }

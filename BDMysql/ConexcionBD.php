@@ -6,47 +6,47 @@ $metodos = new GestoraBD();
 $conex;
 
 //Determina si una variable está definida y no es NULL
-if(isset($_POST["Nombre"])){
+//if(isset($_POST["Nombre"])){
 
     $nombre = $_POST["Nombre"];
 
-}else {
+//}else {
 
-    $nombre = null;
-    echo "Nombre caca";echo '<br>';
-}
+    //$nombre = null;
+    //echo "Nombre caca";echo '<br>';
+//}
 
 
-if(isset($_POST["Id"])){
+//if(isset($_POST["Id"])){
 
     $Id = $_POST["Id"];
 
-}else {
+//}else {
 
-    $Id = null;
-    echo "Id caca";echo '<br>';
-}
+   // $Id = null;
+    //echo "Id caca";echo '<br>';
+//}
 
-if(isset($_POST["Direccion"])){
+//if(isset($_POST["Direccion"])){
 
     $Direccion = $_POST["Direccion"];
 
-}else {
+//}else {
 
-    $Direccion = null;
-    echo "Direccion caca";echo '<br>';
-}
+    //$Direccion = null;
+    //echo "Direccion caca";echo '<br>';
+//}
 
 
-if(isset($_POST["Telefono"])){
+///if(isset($_POST["Telefono"])){
 
     $Telefono = $_POST["Telefono"];
 
-}else {
+//}else {
 
-    $Telefono = null;
-    echo "Telefono caca";echo '<br>';
-}
+    //$Telefono = null;
+    //echo "Telefono caca";echo '<br>';
+//}
 
 
 
