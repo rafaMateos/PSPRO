@@ -59,11 +59,13 @@ $metodos->ComprobarConex($conex);
 echo "<div>";
 
 echo "<h2>Realizamos el insert</h2>";
+
 $sql = "INSERT INTO Datos(Id,Nombre,Direccion,Telefono) VALUES ($Id,'$nombre','$Direccion',$Telefono)";
+
 $metodos->realizarInsert($conex,$sql);
 echo "<div>";
 
-
+//php es mierda :D <3 te quiero rafa
 echo "<h2>Consulta</h2>";
 echo "<div>";
 
