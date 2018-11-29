@@ -6,7 +6,7 @@
  * Time: 21:38
  */
 
-class GestoraBD
+ class GestoraBD
 {
 
     /*
@@ -14,6 +14,7 @@ class GestoraBD
      *
      * Entradas : No tiene
      * */
+
 
 
     public function conectar(){
