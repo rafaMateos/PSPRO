@@ -50,7 +50,7 @@ function registerUserInApi($method, $url, $data){
     $result = curl_exec($curl);
     if(!$result){
 
-        die("Algo salio mal");
+        echo("Algo salio mal");
     }
 
     curl_close($curl);

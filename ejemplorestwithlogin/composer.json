@@ -1,0 +1,6 @@
+{
+    "require": {
+        "firebase/php-jwt": "2.0.0",
+        "0.0.1/try-make-package": "0.0.2"
+    }
+}

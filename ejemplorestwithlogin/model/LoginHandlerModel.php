@@ -1,16 +1,38 @@
 <?php
 
+require_once 'JWT.php';
 
 
 class LoginHandlerModel
 {
 
+    public static  function generateToken($user){
+
+        $time = time();
+        $key = 'my_secret_key';
+
+        $token = array(
+            'iat' => $time, // Tiempo que inició el token
+            'exp' => $time + (60*60), // Tiempo que expirará el token (+1 hora)
+            'data' => [ // información del usuario
+                'id' => 1,
+                'name' => 'Eduardo'
+            ]
+        );
+
+
+
+
+    }
+
+
+
     public static function getLogin($userString)
     {
+
         $listaLogin = null;
         $db = DatabaseModel::getInstance();
         $db_connection = $db->getConnection();
-
 
             $query = "SELECT user, pass FROM Logins";
 
@@ -48,18 +70,22 @@ class LoginHandlerModel
                     $listaLogin = new LoginModel($user, $pass);
                 }
 
+
             }else
+
                 {
 
                 while ($prep_query->fetch()) {
                     $user = utf8_encode($user);
                     $pass = utf8_encode($pass);
                     $login = new LoginModel($user, $pass);
+
                     $listaLogin[] = $login;
                 }
 
                 }
             }
+
 
         $db->closeConnection();
 
@@ -77,7 +103,7 @@ class LoginHandlerModel
 
         $hashpass = password_hash($login->pass, PASSWORD_DEFAULT);
 
-            $query = ("insert into Logins (user,pass) values  (?,?)");
+            $query = ("insert into Logins (user,pass) values (?,?)");
 
             $prep_query = $db_connection->prepare($query);
 
