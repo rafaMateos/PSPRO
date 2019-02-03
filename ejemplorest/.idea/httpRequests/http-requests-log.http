@@ -1,0 +1,76 @@
+POST http://biblioteca.devel:8080/login
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+{        "user":"juaniti",        "pass":"123"     }
+
+<> 2018-12-21T071342.200.html
+
+###
+
+POST http://biblioteca.devel:8080/login
+Accept: application/json
+Cache-Control: no-cache
+Authorization: juanito:123
+
+{        "user":"juaniti",        "pass":"123"     }
+
+<> 2018-12-21T070000.200.html
+
+###
+
+GET http://biblioteca.devel:8080/login/juanito
+Accept: application/json
+Cache-Control: no-cache
+
+###
+
+GET http://biblioteca.devel:8080/login/1
+Accept: application/json
+Cache-Control: no-cache
+
+###
+
+GET http://biblioteca.devel:8080/login/1
+Accept: application/json
+Cache-Control: no-cache
+
+<> 2018-12-21T060607.200.json
+
+###
+
+GET http://biblioteca.devel:8080/login/
+Accept: application/json
+Cache-Control: no-cache
+
+<> 2018-12-21T060604.200.json
+
+###
+
+GET http://biblioteca.devel:8080/login
+Accept: application/json
+Cache-Control: no-cache
+
+<> 2018-12-21T060557.200.json
+
+###
+
+POST http://libro.api:8080/libro/
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+{         "titulo": "Don Quijote de Sevilla",         "codigo": 4,         "numpag": 894     }
+
+###
+
+POST http://libro.api:8080/libro/
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+{         "titulo": "Don Quijote de Sevilla",         "codigo": 4,         "numpag": 894     }
+
+###
+
