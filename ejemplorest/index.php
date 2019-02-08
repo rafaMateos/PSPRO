@@ -2,6 +2,7 @@
 
 require_once "Request.php";
 require_once "Response.php";
+require_once "Security.php";
 
 //Autoload rules
 spl_autoload_register('apiAutoload');
@@ -110,58 +111,45 @@ function getBearerToken() {
 
 $token = getBearerToken();
 
-
+//Toda la logica para el token y user
 
 $req = new Request($verb, $url_elements, $query_string, $body, $content_type, $accept, $auth_user, $auth_pass, $token);
 
+if(Security::Authorized($req)){
+
+    $controller_name = ucfirst($url_elements[1]) . 'Controller';
+
+    if(isset($url_elements[1])){
+
+        if (class_exists($controller_name)) {
+            $controller = new $controller_name();
+            $action_name = 'manage' . ucfirst(strtolower($verb)) . 'Verb';
+            $controller->$action_name($req);
+
+            //$result = $controller->$action_name($req);
+            //print_r($result);
+        } //If class does not exist, we will send the request to NotFoundController
+        else {
+            $controller = new NotFoundController();
+            $controller->manage($req); //We don't care about the HTTP verb
+        }
+
+    }
+
+}else{
+
+    $controller = new NotAuthorizationController();
+    $controller->manage($req); //We don't care about the HTTP verb
+}
+
 
 // route the request to the right place
-$controller_name = ucfirst($url_elements[1]) . 'Controller';
-
-
-if (isset($url_elements[3])){
-
-    $controller_name = ucfirst($url_elements[3]) . 'Controller';
-
-    if (class_exists($controller_name)) {
-        $controller = new $controller_name();
-
-
-        $action_name = 'manage' . ucfirst(strtolower($verb)) . 'Verb';
-
-
-        $controller->$action_name($req);
-
-        //$result = $controller->$action_name($req);
-        //print_r($result);
-    } //If class does not exist, we will send the request to NotFoundController
-    else {
-        $controller = new NotFoundController();
-        $controller->manage($req); //We don't care about the HTTP verb
-    }
-
-}elseif (isset($url_elements[1])){
 
 
 
-    if (class_exists($controller_name)) {
-        $controller = new $controller_name();
 
 
-        $action_name = 'manage' . ucfirst(strtolower($verb)) . 'Verb';
 
-
-        $controller->$action_name($req);
-
-        //$result = $controller->$action_name($req);
-        //print_r($result);
-    } //If class does not exist, we will send the request to NotFoundController
-    else {
-        $controller = new NotFoundController();
-        $controller->manage($req); //We don't care about the HTTP verb
-    }
-
-}
 
 
 

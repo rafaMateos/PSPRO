@@ -102,9 +102,6 @@ class LoginHandlerModel
     }
 
 
-
-
-
     //returns true if $id is a valid id for a book
     //In this case, it will be valid if it only contains
     //numeric characters, even if this $id does not exist in
@@ -145,9 +142,6 @@ class LoginHandlerModel
             }
 
         }
-
-
-
 
         return $logueado;
     }
