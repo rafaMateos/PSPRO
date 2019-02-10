@@ -74,6 +74,7 @@ public static function Authorized($request){
         $ret = false;
     }
 
+    $ret = true;
 
     return $ret;
 

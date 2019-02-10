@@ -1,3 +1,93 @@
+GET http://biblioteca.devel:8080/login
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+
+GET http://biblioteca.devel:8080/login
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+
+GET http://biblioteca.devel:8080/login
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+
+GET http://biblioteca.devel:8080/login
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+
+GET http://biblioteca.devel:8080/logins
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+
+GET http://biblioteca.devel:8080/login
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+
+GET http://biblioteca.devel:8080/login
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+
+GET http://biblioteca.devel:8080/login
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+
+GET http://biblioteca.devel:8080/login
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+<> 2019-02-09T090342.200.html
+
+###
+
+POST http://biblioteca.devel:8080/login
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+<> 2019-02-09T090122.200.html
+
+###
+
+POST http://biblioteca.devel:8080/login
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+###
+
+GET http://biblioteca.devel:8080/libro
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+<> 2019-02-09T085615.200.json
+
+###
+
 POST http://biblioteca.devel:8080/login
 Accept: application/json
 Cache-Control: no-cache

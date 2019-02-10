@@ -14,7 +14,7 @@ class LoginHandlerModel
 
 
 
-            $query = "SELECT user, pass FROM Logins";
+            $query = "SELECT * FROM Logins";
 
 
             if ($userString != null) {

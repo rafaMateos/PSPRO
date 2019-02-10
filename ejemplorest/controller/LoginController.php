@@ -47,45 +47,19 @@ class LoginController extends Controller
 
     public function managePostVerb(Request $request)
     {
-
         $login = $request->getBodyParameters();
-
         $filasAfectadas = null;
         $response = null;
         $code = null;
         $authorized = true;
 
-        $user = $request->getUser();
-        $pass = $request->getPass();
-        $token = getBearerToken();
-
-
-        if ($token != null){
-            try{
-
-                $dios = Security::decodeToken($token);
-
-            }catch (Exception $e){
-
-                $authorized = false;
-
-            }
-
-            if ($e == null){
-
-                $filasAfectadas = LoginHandlerModel::postLogin($login);
-            }
-
-
-        }elseif (LoginHandlerModel::comprobarUsuario($user, $pass)){
-
-            $filasAfectadas = LoginHandlerModel::postLogin($login);
-            $token = Security::generateToken();
-
-        }
+        $filasAfectadas = LoginHandlerModel::postLogin($login);
 
 
         if ($filasAfectadas == 1) {
+
+            $token = Security::generateToken();
+
             $code = '200';
 
         } elseif (!$authorized) {
@@ -95,12 +69,13 @@ class LoginController extends Controller
         }else{
 
             $code = '400';
+
         }
 
         $response = new Response($code, array('Authorization'=>'Bearer '.$token), null, $request->getAccept());
         $response->generate();
-
     }
+
 
 
 

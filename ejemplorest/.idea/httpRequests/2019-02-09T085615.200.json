@@ -1,0 +1,17 @@
+[
+  {
+    "titulo": "Don Quijote de La Mancha",
+    "codigo": 1,
+    "numpag": 894
+  },
+  {
+    "titulo": "Aprende a programar con Java",
+    "codigo": 2,
+    "numpag": 402
+  },
+  {
+    "titulo": "Zombi: GuÃ­a de supervivencia",
+    "codigo": 3,
+    "numpag": 288
+  }
+]
