@@ -27,9 +27,10 @@ class LoginController extends Controller
 
 
 
-
+        $token = Security::generateToken();
 
         if ($listaLibros != null) {
+
 
             $code = '200';
 
@@ -39,7 +40,7 @@ class LoginController extends Controller
         }
 
 
-        $response = new Response($code, null, $listaLibros, $request->getAccept());
+        $response = new Response($code,  array('Authorization'=>'Bearer '.$token), $listaLibros, $request->getAccept());
         $response->generate();
 
     }
@@ -55,10 +56,11 @@ class LoginController extends Controller
 
         $filasAfectadas = LoginHandlerModel::postLogin($login);
 
+        $token = Security::generateToken();
 
         if ($filasAfectadas == 1) {
 
-            $token = Security::generateToken();
+
 
             $code = '200';
 

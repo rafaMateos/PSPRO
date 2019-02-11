@@ -27,7 +27,8 @@ class LibroController extends Controller
 
 
         $listaLibros = LibroHandlerModel::getLibro($id);
-        $encoded = \Firebase\JWT\JWT::urlsafeB64Encode("Pepe");
+
+        $token = Security::generateToken();
 
         if ($listaLibros != null) {
             $code = '200';
@@ -44,7 +45,7 @@ class LibroController extends Controller
 
         }
 
-        $response = new Response($code, null, $listaLibros, $request->getAccept());
+        $response = new Response($code,  array('Authorization'=>'Bearer '.$token), $listaLibros, $request->getAccept());
         $response->generate();
 
     }
@@ -60,6 +61,7 @@ class LibroController extends Controller
 
 
         $filasAfectadas = LibroHandlerModel::postLibro($libro);
+        $token = Security::generateToken();
 
         if ($filasAfectadas == 1) {
             $code = '200';
@@ -70,7 +72,7 @@ class LibroController extends Controller
 
         }
 
-        $response = new Response($code, null, null, $request->getAccept());
+        $response = new Response($code,  array('Authorization'=>'Bearer '.$token), null, $request->getAccept());
         $response->generate();
 
     }
@@ -89,6 +91,7 @@ class LibroController extends Controller
 
 
         $filasAfectadas = LibroHandlerModel::deleteLibro($id);
+        $token = Security::generateToken();
 
         if ($filasAfectadas != 0) {
             $code = '200';
@@ -103,7 +106,7 @@ class LibroController extends Controller
 
         }
 
-        $response = new Response($code, null, null, $request->getAccept());
+        $response = new Response($code,  array('Authorization'=>'Bearer '.$token), null, $request->getAccept());
         $response->generate();
 
     }
@@ -123,6 +126,7 @@ class LibroController extends Controller
 
 
         $filasAfectadas = LibroHandlerModel::putLibro($libro, $id);
+        $token = Security::generateToken();
 
         if ($filasAfectadas != 0) {
             $code = '200';
@@ -137,7 +141,7 @@ class LibroController extends Controller
 
         }
 
-        $response = new Response($code, null, null, $request->getAccept());
+        $response = new Response($code,  array('Authorization'=>'Bearer '.$token), null, $request->getAccept());
         $response->generate();
 
     }

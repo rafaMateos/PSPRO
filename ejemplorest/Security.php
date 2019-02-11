@@ -31,52 +31,56 @@ public static function generateToken(){
 public static function decodeToken($jwt){
 
     $decoded = JWT::decode($jwt, self::$KEY, array('HS256'));
-
     return $decoded;
 
 }
 
 
-//Esto debe devolver true o false
+//Esto debe devolver true o false si tiene o no tiene permisos
 public static function Authorized($request){
 
-    $ret = true;
+    $autorizado = true;
     $user = $request->getUser();
     $pass = $request->getPass();
     $token = getBearerToken();
 
-    if($token != null){
+    $e = null;
 
-        try{
+        if($token != null){
 
-            Security::decodeToken();
+            try{
 
-        }catch (Exception $e){
+                Security::decodeToken($token);
 
-            $ret = false;
-        }
+            }catch (Exception $e){
 
-        if(e != null){//No tenia token o token invalido
+                $autorizado = false;
+            }
+
+        }else if ($user != null && $pass != null){
 
             if(LoginHandlerModel::comprobarUsuario($user,$pass)){
 
+                $autorizado = true;
+
             }else{
 
-                $ret = false;
+                $autorizado = false;
             }
+
         }else{
-            //Hacer lo que el user quiera
+
+            $autorizado = false;
+
         }
 
 
-    }else{
 
-        $ret = false;
-    }
 
-    $ret = true;
+    //$ret = true;
 
-    return $ret;
+
+    return $autorizado;
 
 }
 
